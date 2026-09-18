@@ -1,0 +1,106 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+}
+
+/* STAT CARDS */
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 12px;
+}
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08) !important;
+}
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+/* STAR RATING */
+.star-rating .star-btn {
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+    padding: 0 4px;
+}
+.star-rating .star-btn:hover {
+    transform: scale(1.2);
+}
+.star-rating .fa-solid {
+    color: #ffc107 !important;
+}
+
+/* BADGES */
+.badge-priority-HIGH {
+    background-color: #dc3545;
+    color: #fff;
+}
+.badge-priority-MEDIUM {
+    background-color: #ffc107;
+    color: #000;
+}
+.badge-priority-LOW {
+    background-color: #0dcaf0;
+    color: #000;
+}
+
+.badge-status-Submitted {
+    background-color: #6c757d;
+    color: #fff;
+}
+.badge-status-In_Progress, .badge-status-In-Progress {
+    background-color: #0d6efd;
+    color: #fff;
+}
+.badge-status-Action_Taken, .badge-status-Action-Taken {
+    background-color: #fd7e14;
+    color: #fff;
+}
+.badge-status-Resolved {
+    background-color: #198754;
+    color: #fff;
+}
+.badge-status-Escalated {
+    background-color: #dc3545;
+    color: #fff;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* SLA COUNTDOWN */
+.sla-badge {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+.sla-green {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+.sla-yellow {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+.sla-red {
+    background-color: #f8d7da;
+    color: #842029;
+}

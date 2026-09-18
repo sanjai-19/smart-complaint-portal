@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Complaint & Grievance Portal | Campus Redressal System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#" onclick="showSection('dashboard')">
+                <i class="fa-solid fa-graduation-cap fs-4"></i>
+                <span>Smart Complaint Portal</span>
+                <span class="badge bg-light text-primary fs-7 ms-1">Campus Redressal</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="nav-dash" href="#" onclick="showSection('dashboard')"><i class="fa-solid fa-house me-1"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item" id="nav-submit-li">
+                        <a class="nav-link" id="nav-submit" href="#" onclick="showSection('submit')"><i class="fa-solid fa-plus-circle me-1"></i> Submit Grievance</a>
+                    </li>
+                    <li class="nav-item" id="nav-track-li">
+                        <a class="nav-link" id="nav-track" href="#" onclick="showSection('track')"><i class="fa-solid fa-stopwatch me-1"></i> Track & SLA Timer</a>
+                    </li>
+                    <li class="nav-item" id="nav-staff-li">
+                        <a class="nav-link" id="nav-staff" href="#" onclick="showSection('staff')"><i class="fa-solid fa-user-shield me-1"></i> Staff / HOD Queue</a>
+                    </li>
+                </ul>
+
+                <!-- USER STATUS & DEMO SWITCHER -->
+                <div class="d-flex align-items-center gap-2" id="userArea">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light btn-sm dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-users"></i>
+                            <span id="currentUserDisplay">Rahul Sharma (Student)</span>
+                            <span class="badge bg-warning text-dark" id="currentRoleBadge">STUDENT</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li><h6 class="dropdown-header">Switch Demo User Role</h6></li>
+                            <li><a class="dropdown-item" href="#" onclick="quickSwitch('student@campus.edu')"><i class="fa-solid fa-user-graduate me-2 text-primary"></i> Student (Rahul)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="quickSwitch('hostel@campus.edu')"><i class="fa-solid fa-building me-2 text-info"></i> Hostel Coordinator (Prof. Alok)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="quickSwitch('academics@campus.edu')"><i class="fa-solid fa-book-open me-2 text-info"></i> Academics Coordinator (Dr. Meena)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="quickSwitch('infra@campus.edu')"><i class="fa-solid fa-wrench me-2 text-info"></i> Infra Coordinator (Er. Rajesh)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="quickSwitch('hod@campus.edu')"><i class="fa-solid fa-user-tie me-2 text-warning"></i> HOD (Dr. Raman - Escalation Level 1)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="quickSwitch('dean@campus.edu')"><i class="fa-solid fa-crown me-2 text-danger"></i> Dean (Dr. Sen - Escalation Level 2)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#" onclick="logout()"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout / Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container my-4">
+
+        <!-- METRIC STATS BANNER -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-3 col-6">
+                <div class="card stat-card shadow-sm border-0 border-start border-primary border-4 p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-muted small fw-semibold">TOTAL TICKETS</span>
+                            <h3 class="fw-bold my-1 text-primary" id="statTotal">0</h3>
+                        </div>
+                        <div class="stat-icon bg-primary-subtle text-primary"><i class="fa-solid fa-ticket"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card stat-card shadow-sm border-0 border-start border-warning border-4 p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-muted small fw-semibold">48h SLA ACTIVE</span>
+                            <h3 class="fw-bold my-1 text-warning" id="statActive">0</h3>
+                        </div>
+                        <div class="stat-icon bg-warning-subtle text-warning"><i class="fa-solid fa-clock"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card stat-card shadow-sm border-0 border-start border-danger border-4 p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-muted small fw-semibold">ESCALATED (HOD/DEAN)</span>
+                            <h3 class="fw-bold my-1 text-danger" id="statEscalated">0</h3>
+                        </div>
+                        <div class="stat-icon bg-danger-subtle text-danger"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card stat-card shadow-sm border-0 border-start border-success border-4 p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-muted small fw-semibold">RESOLVED & RATED</span>
+                            <h3 class="fw-bold my-1 text-success" id="statResolved">0</h3>
+                        </div>
+                        <div class="stat-icon bg-success-subtle text-success"><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTIFICATION BANNER -->
+        <div id="alertPlaceholder"></div>
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 1: DASHBOARD / MY GRIEVANCES -->
+        <!-- ========================================================================= -->
+        <div id="section-dashboard" class="content-section">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="fw-bold mb-0 text-dark" id="dashboardTitle"><i class="fa-solid fa-list-check me-2 text-primary"></i> My Submitted Grievances</h5>
+                        <small class="text-muted">Track status, live SLA timers, and submit satisfaction ratings.</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary btn-sm" onclick="loadDashboard()"><i class="fa-solid fa-rotate-right me-1"></i> Refresh</button>
+                        <button class="btn btn-primary btn-sm" onclick="showSection('submit')"><i class="fa-solid fa-plus me-1"></i> New Grievance</button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Ref ID</th>
+                                    <th>Category</th>
+                                    <th>Title & Description</th>
+                                    <th>Priority</th>
+                                    <th>Assigned Officer</th>
+                                    <th>Status</th>
+                                    <th>48-Hour SLA Countdown</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myComplaintsTbody">
+                                <tr>
+                                    <td colspan="8" class="text-center py-4 text-muted">Loading grievances...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 2: SUBMIT GRIEVANCE FORM (AC 1 & AC 2) -->
+        <!-- ========================================================================= -->
+        <div id="section-submit" class="content-section d-none">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="fw-bold mb-0"><i class="fa-solid fa-pen-to-square me-2"></i> Submit Campus Grievance</h5>
+                            <small class="text-white-50">Automated category routing, priority calculation, and 48-hour SLA assignment</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="complaintForm" onsubmit="handleComplaintSubmit(event)">
+                                
+                                <!-- CATEGORY SELECTION (AC 1) -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">Grievance Category <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="formCategory" required onchange="calculateLivePriority()">
+                                        <option value="Hostel" selected>🏢 Hostel (Room, Mess, Water, Electricity, Cleanliness)</option>
+                                        <option value="Infrastructure">🏛️ Infrastructure (Classrooms, Labs, Campus Facilities, Roads)</option>
+                                        <option value="Academics">📚 Academics (Faculty, Exams, Hall Tickets, Library, Timetable)</option>
+                                    </select>
+                                    <div class="form-text">Ticket will automatically route to the department coordinator with a 48-hour SLA countdown.</div>
+                                </div>
+
+                                <!-- TITLE -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">Grievance Title <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="formTitle" placeholder="e.g. Water leakage in Hostel Block B Room 304" required oninput="calculateLivePriority()">
+                                </div>
+
+                                <!-- DESCRIPTION -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">Detailed Description <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="formDescription" rows="4" placeholder="Describe the grievance in detail with exact location and timing..." required oninput="calculateLivePriority()"></textarea>
+                                </div>
+
+                                <!-- AUTOMATED PRIORITY ROUTING DISPLAY -->
+                                <div class="alert alert-secondary d-flex align-items-center justify-content-between p-3 mb-3">
+                                    <div>
+                                        <div class="fw-semibold text-dark"><i class="fa-solid fa-bolt text-warning me-1"></i> Automated Priority Routing</div>
+                                        <small class="text-muted" id="priorityReason">Calculated based on category and urgency keywords.</small>
+                                    </div>
+                                    <span class="badge bg-warning text-dark fs-6 px-3 py-2" id="livePriorityBadge">MEDIUM</span>
+                                </div>
+
+                                <!-- PHOTO / DOCUMENT ATTACHMENT (AC 1) -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold"><i class="fa-solid fa-paperclip me-1"></i> Photo / Document Attachment</label>
+                                    <input type="file" class="form-control" id="formAttachment" accept="image/*,.pdf,.doc,.docx" onchange="previewAttachment(this)">
+                                    <div class="form-text">Attach photos or documents as proof (JPG, PNG, PDF up to 5MB).</div>
+                                    
+                                    <!-- ATTACHMENT PREVIEW -->
+                                    <div id="attachmentPreview" class="mt-2 d-none">
+                                        <div class="p-2 border rounded bg-light d-flex align-items-center gap-3">
+                                            <img id="previewImg" src="" alt="Attachment" style="max-height: 70px; border-radius: 4px;" class="d-none">
+                                            <div id="previewDoc" class="d-none"><i class="fa-solid fa-file-pdf fs-2 text-danger"></i></div>
+                                            <div>
+                                                <span class="fw-semibold small d-block" id="attachmentName">file.jpg</span>
+                                                <span class="badge bg-success-subtle text-success small">Ready to upload</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="showSection('dashboard')">Cancel</button>
+                                    <button type="submit" class="btn btn-primary px-4" id="submitBtn"><i class="fa-solid fa-paper-plane me-1"></i> Submit & Start 48h SLA</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 3: TRACK GRIEVANCE & 48-HOUR SLA COUNTDOWN (AC 2 & AC 3) -->
+        <!-- ========================================================================= -->
+        <div id="section-track" class="content-section d-none">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-magnifying-glass me-2 text-primary"></i> Track Grievance Status & SLA Timer</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="input-group mb-4">
+                                <input type="text" class="form-control form-control-lg" id="trackSearchInput" placeholder="Enter Complaint Reference ID (e.g. CMP-000001)">
+                                <button class="btn btn-primary px-4" type="button" onclick="handleTrackSearch()"><i class="fa-solid fa-search me-1"></i> Track Ticket</button>
+                            </div>
+
+                            <div id="trackResultContainer" class="d-none">
+                                <!-- DETAILS CARD -->
+                                <div class="border rounded-3 p-4 bg-light mb-4 position-relative">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                                        <div>
+                                            <span class="badge bg-primary fs-6 me-2" id="trackRefId">CMP-000001</span>
+                                            <span class="badge bg-secondary" id="trackCategory">Hostel</span>
+                                            <span class="badge" id="trackPriority">HIGH</span>
+                                        </div>
+                                        <span class="badge px-3 py-2 fs-7" id="trackStatusBadge">Submitted</span>
+                                    </div>
+
+                                    <h4 class="fw-bold text-dark mb-2" id="trackTitle">Title goes here</h4>
+                                    <p class="text-secondary mb-3" id="trackDescription">Description goes here</p>
+
+                                    <!-- 48-HOUR RESOLUTION SLA COUNTDOWN TIMER (AC 2 & AC 3) -->
+                                    <div class="card border-0 shadow-sm p-3 mb-4 bg-white">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="fw-bold text-dark"><i class="fa-solid fa-stopwatch text-primary me-1"></i> 48-Hour Resolution SLA Countdown</span>
+                                            <span class="fw-bold font-monospace fs-5" id="trackCountdownTimer">47h 59m 00s</span>
+                                        </div>
+                                        <div class="progress" style="height: 12px;">
+                                            <div id="trackProgressBar" class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between text-muted small mt-2">
+                                            <span>Created: <strong id="trackCreated">2026-09-18 12:00</strong></span>
+                                            <span>SLA Deadline: <strong id="trackDeadline">2026-09-20 12:00</strong></span>
+                                        </div>
+                                        <div id="slaBreachAlert" class="alert alert-danger py-2 mt-2 mb-0 d-none">
+                                            <i class="fa-solid fa-triangle-exclamation me-1"></i> <strong>SLA BREACHED:</strong> Auto-escalated to Department Head / Dean.
+                                        </div>
+                                    </div>
+
+                                    <!-- ESCALATION AUDIT INFO -->
+                                    <div class="row g-2 mb-3 small text-muted">
+                                        <div class="col-sm-6">
+                                            <i class="fa-solid fa-user-check me-1 text-primary"></i> Assigned Officer: <strong class="text-dark" id="trackOfficer">Prof. Alok</strong>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <i class="fa-solid fa-arrow-up-right-dots me-1 text-danger"></i> Escalated To: <strong class="text-dark" id="trackEscalatedTo">None</strong>
+                                        </div>
+                                        <div class="col-sm-6" id="trackAttachmentRow">
+                                            <i class="fa-solid fa-paperclip me-1 text-info"></i> Attachment: <a href="#" id="trackAttachmentLink" target="_blank" class="text-primary fw-semibold">View Attachment</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- ACTION / RESOLUTION DETAILS -->
+                                    <div id="resolutionBox" class="alert alert-info py-3 mb-3 d-none">
+                                        <h6 class="fw-bold mb-1"><i class="fa-solid fa-clipboard-check me-1"></i> Staff Action Taken:</h6>
+                                        <p class="mb-0" id="trackResolutionText">Staff entered remarks here.</p>
+                                    </div>
+
+                                    <!-- MANDATORY CITIZEN SATISFACTION RATING (AC 4) -->
+                                    <div id="studentFeedbackCard" class="card border-warning shadow-sm p-3 bg-warning-subtle d-none">
+                                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                            <div>
+                                                <h6 class="fw-bold text-dark mb-1"><i class="fa-solid fa-star text-warning me-1"></i> Action Taken! Your Rating Required</h6>
+                                                <small class="text-dark">Please rate your satisfaction before ticket status transitions to <strong>RESOLVED</strong>.</small>
+                                            </div>
+                                            <button class="btn btn-warning fw-bold" onclick="openRatingModal()"><i class="fa-solid fa-star me-1"></i> Rate & Close Ticket</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- COMPLETED RATING DISPLAY -->
+                                    <div id="completedFeedbackCard" class="alert alert-success py-2 d-none">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span><i class="fa-solid fa-circle-check me-1"></i> <strong>Ticket Resolved & Closed:</strong> Rated <span id="displayStars">⭐⭐⭐⭐⭐</span></span>
+                                            <small class="text-muted fst-italic" id="displayFeedbackComment">"Issue resolved on time."</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 4: STAFF & OFFICER RESOLUTION QUEUE (COORDINATOR / HOD / DEAN) -->
+        <!-- ========================================================================= -->
+        <div id="section-staff" class="content-section d-none">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                        <h5 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-user-shield me-2 text-primary"></i> Officer Redressal & Escalation Queue</h5>
+                        <small class="text-muted">Review department grievances, take actions, or escalate to HOD / Dean.</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-danger btn-sm" onclick="triggerAutoEscalationCheck()" title="Simulate 48h SLA timer check and auto-escalate breached tickets"><i class="fa-solid fa-bolt me-1"></i> Run SLA Auto-Escalator</button>
+                        <button class="btn btn-outline-primary btn-sm" onclick="loadStaffQueue()"><i class="fa-solid fa-rotate-right me-1"></i> Refresh</button>
+                    </div>
+                </div>
+                
+                <div class="card-body p-0">
+                    <!-- FILTER BUTTONS -->
+                    <div class="p-3 bg-light border-bottom d-flex gap-2 flex-wrap">
+                        <button class="btn btn-sm btn-primary filter-btn active" onclick="filterStaffTable('ALL', this)">All Grievances</button>
+                        <button class="btn btn-sm btn-outline-secondary filter-btn" onclick="filterStaffTable('Hostel', this)">Hostel</button>
+                        <button class="btn btn-sm btn-outline-secondary filter-btn" onclick="filterStaffTable('Infrastructure', this)">Infrastructure</button>
+                        <button class="btn btn-sm btn-outline-secondary filter-btn" onclick="filterStaffTable('Academics', this)">Academics</button>
+                        <button class="btn btn-sm btn-outline-danger filter-btn" onclick="filterStaffTable('ESCALATED', this)">⚠️ Escalated to HOD/Dean</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Ref ID</th>
+                                    <th>Student</th>
+                                    <th>Category</th>
+                                    <th>Title</th>
+                                    <th>Priority</th>
+                                    <th>SLA Remaining</th>
+                                    <th>Status</th>
+                                    <th>Escalation Info</th>
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="staffQueueTbody">
+                                <tr>
+                                    <td colspan="9" class="text-center py-4 text-muted">Loading queue...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL 1: STUDENT SATISFACTION RATING (AC 4) -->
+    <!-- ========================================================================= -->
+    <div class="modal fade" id="ratingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-warning text-dark py-3">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-star me-2"></i> Rate Resolution Satisfaction</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <p class="text-muted mb-3">Acceptance Criteria 4 requires student feedback before ticket status transitions to <strong>RESOLVED</strong>.</p>
+                    
+                    <!-- STAR RATING WIDGET -->
+                    <div class="star-rating mb-3 fs-1 text-warning">
+                        <i class="fa-regular fa-star star-btn" data-val="1" onclick="setStarRating(1)"></i>
+                        <i class="fa-regular fa-star star-btn" data-val="2" onclick="setStarRating(2)"></i>
+                        <i class="fa-regular fa-star star-btn" data-val="3" onclick="setStarRating(3)"></i>
+                        <i class="fa-regular fa-star star-btn" data-val="4" onclick="setStarRating(4)"></i>
+                        <i class="fa-regular fa-star star-btn" data-val="5" onclick="setStarRating(5)"></i>
+                    </div>
+                    <div class="fw-bold mb-3 text-dark" id="ratingLabel">Click stars to rate (1 to 5)</div>
+
+                    <div class="text-start mb-3">
+                        <label class="form-label fw-semibold">Feedback / Remarks</label>
+                        <textarea class="form-control" id="feedbackComment" rows="3" placeholder="How satisfied are you with the resolution provided by staff?"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success fw-bold px-4" onclick="submitSatisfactionRating()"><i class="fa-solid fa-check-double me-1"></i> Submit & Mark RESOLVED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- MODAL 2: STAFF ACTION TAKEN (PRE-CLOSURE) -->
+    <!-- ========================================================================= -->
+    <div class="modal fade" id="actionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white py-3">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-clipboard-check me-2"></i> Submit Action Taken</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="small text-muted">Document work done. Status will change to <em>Action Taken</em> and await student satisfaction rating.</p>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Work Done / Resolution Remarks <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="actionRemarks" rows="4" placeholder="e.g. Plumber replaced faulty gasket in Room 304. Water line restored and tested." required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary px-4" onclick="submitActionTaken()"><i class="fa-solid fa-paper-plane me-1"></i> Submit Action Taken</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Application JS -->
+    <script src="app.js"></script>
+</body>
+</html>
