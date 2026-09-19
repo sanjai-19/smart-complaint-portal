@@ -1,5 +1,7 @@
 # 🏛️ Smart Complaint & Grievance Redressal Portal
 
+![Smart Complaint Portal Banner](linkedin_cover.jpg)
+
 > **Campus and civic hierarchical grievance redressal portal with automated priority routing, 48-hour resolution SLA countdown timers, auto-escalation to HOD/Dean, and mandatory student satisfaction ratings.**
 
 ---

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Complaint & Grievance Redressal Portal | Capstone Viva Presentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <header class="presentation-header">
+        <div class="header-left">
+            <span class="header-badge">SIST CSE AI</span>
+            <span class="header-title">Smart Complaint &amp; Grievance Redressal Portal</span>
+            <span class="header-sub">| Capstone Viva Defense</span>
+        </div>
+        <div class="header-right">
+            <span class="slide-counter" id="slideCounter">Slide 1 / 20</span>
+        </div>
+    </header>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- MAIN SLIDE CONTAINER -->
+    <main class="presentation-container">
+
+        <!-- ===================================================================
+             SLIDE 1: TITLE & TEAM SPECIFICATIONS
+             =================================================================== -->
+        <section class="slide active" data-slide="1">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Capstone Project Charter</div>
+                    <h1 class="slide-title">Smart Complaint &amp; Grievance Redressal Portal</h1>
+                </div>
+                <span class="slide-tag">SIST CSE AI • 2024–2025</span>
+            </div>
+            <div class="slide-body" style="justify-content: center;">
+                <div class="card card-primary" style="margin-bottom: 20px; text-align: center; padding: 24px;">
+                    <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 6px;">Hierarchical Campus Grievance Redressal &amp; SLA Auto-Escalation Web Platform</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Automated Priority Routing • 48-Hour Resolution SLA • Multi-Tier Escalation (Coordinator → HOD → Dean) • Closed-Loop Student Rating</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card card-alt">
+                        <div class="card-title">👨‍💻 Student Candidate Information</div>
+                        <ul class="feature-list" style="margin-top: 8px;">
+                            <li><span class="bullet-icon">•</span><strong>Student Lead:</strong> Sanjai</li>
+                            <li><span class="bullet-icon">•</span><strong>Department:</strong> B.E. Computer Science &amp; Engineering (Artificial Intelligence)</li>
+                            <li><span class="bullet-icon">•</span><strong>Batch &amp; Section:</strong> 2023 – 2027 / 2nd Year</li>
+                            <li><span class="bullet-icon">•</span><strong>Project Domain:</strong> Full-Stack Web Architecture, Database Systems &amp; Process Automation</li>
+                        </ul>
+                    </div>
+                    <div class="card card-alt">
+                        <div class="card-title">🏛️ Institutional Affiliation</div>
+                        <ul class="feature-list" style="margin-top: 8px;">
+                            <li><span class="bullet-icon">•</span><strong>Institution:</strong> Sathyabama Institute of Science and Technology (SIST)</li>
+                            <li><span class="bullet-icon">•</span><strong>Evaluation Rubric:</strong> Full-Stack Engineering Capstone (100 Marks)</li>
+                            <li><span class="bullet-icon">•</span><strong>GitHub Repository:</strong> <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary);">sanjai-19/smart-complaint-portal</span></li>
+                            <li><span class="bullet-icon">•</span><strong>Architecture:</strong> 3-Tier Web Application (Java SE 21 + MySQL 8.0 + HTML5/Bootstrap 5)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 2: INTRODUCTION & DOMAIN BACKGROUND
+             =================================================================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 1: Define</div>
+                    <h2 class="slide-title">Introduction &amp; Industry Domain Background</h2>
+                </div>
+                <span class="slide-tag">Domain Overview</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3" style="margin-bottom: 20px;">
+                    <div class="card card-primary">
+                        <div class="card-title">Campus Redressal Needs</div>
+                        <p class="card-body-text">Modern higher educational institutions accommodate thousands of resident students across academic, hostel, and infrastructure facilities requiring immediate redressal.</p>
+                    </div>
+                    <div class="card card-warning">
+                        <div class="card-title">The Role of SLAs</div>
+                        <p class="card-body-text">Service Level Agreements (SLAs) establish strict resolution deadlines (e.g., 48 Hours) to replace informal, unmonitored communication with quantifiable metrics.</p>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">Citizen Charters</div>
+                        <p class="card-body-text">Transparent tracking, automated escalation, and mandatory satisfaction scoring empower students while establishing administrative accountability.</p>
+                    </div>
+                </div>
+                <div class="card card-alt">
+                    <div class="card-title">Key Industry Drivers for Modern Grievance Portals</div>
+                    <ul class="feature-list">
+                        <li><span class="bullet-icon">✓</span><strong>Shift from Physical to Digital:</strong> Eliminating physical complaint boxes in favor of real-time multi-device accessibility.</li>
+                        <li><span class="bullet-icon">✓</span><strong>Zero Accountability in Email Threads:</strong> Overcoming informal emails where tickets get buried or lost with no assigned ownership.</li>
+                        <li><span class="bullet-icon">✓</span><strong>Enforced Governance:</strong> Implementing systematic escalation hierarchies ensuring institutional leaders (HODs/Deans) intervene on delayed tickets.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 3: PROBLEM STATEMENT & INEFFICIENCIES
+             =================================================================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 1: Define</div>
+                    <h2 class="slide-title">Problem Statement &amp; Real-World Inefficiencies</h2>
+                </div>
+                <span class="slide-tag">Problem Analysis</span>
+            </div>
+            <div class="slide-body">
+                <div class="card card-danger" style="margin-bottom: 18px; padding: 18px;">
+                    <h4 style="color: var(--danger); margin-bottom: 6px;">Official Problem Statement</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;"><em>"Campus and civic grievance redressal processes are fragmented across paper complaint boxes and unmonitored emails, resulting in untracked complaint escalations, delayed resolutions, and zero accountability for administrative officers."</em></p>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title" style="color: var(--danger);">🚨 Critical Real-World Pain Points</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">✕</span><strong>Untracked Complaints:</strong> Grievances submitted via paper drop boxes lack reference IDs, audit trails, and timestamps.</li>
+                            <li><span class="bullet-icon">✕</span><strong>Delayed Resolutions:</strong> Urgent hazards (electrical shock, water pipe burst) sit unattended for days without prioritization.</li>
+                            <li><span class="bullet-icon">✕</span><strong>Zero Staff Accountability:</strong> No automated mechanism exists to trace which officer was responsible for resolving an issue.</li>
+                            <li><span class="bullet-icon">✕</span><strong>Information Asymmetry:</strong> Students have no visibility into the status of their requests once dropped in a box.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title" style="color: var(--primary);">🎯 Impact on Stakeholders</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>Students:</strong> Frustration due to unresolved living conditions and lack of communication.</li>
+                            <li><span class="bullet-icon">•</span><strong>Department Coordinators:</strong> Overwhelmed with unorganized paper slips and duplicate complaints.</li>
+                            <li><span class="bullet-icon">•</span><strong>HODs &amp; Deans:</strong> Blind to chronic bottlenecks until escalations explode into severe campus disruptions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 4: EXISTING SYSTEM & INHERENT BOTTLENECKS
+             =================================================================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 1: Define</div>
+                    <h2 class="slide-title">Existing System &amp; Inherent Bottlenecks</h2>
+                </div>
+                <span class="slide-tag">Current vs Target</span>
+            </div>
+            <div class="slide-body">
+                <div class="table-container" style="margin-bottom: 18px;">
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Workflow Dimension</th>
+                                <th>Traditional / Manual System</th>
+                                <th>Inherent Failure / Bottleneck</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Submission Channel</strong></td>
+                                <td>Physical paper drop boxes &amp; individual emails</td>
+                                <td>Missing attachments, lost paper slips, unformatted text</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Priority Routing</strong></td>
+                                <td>Manual FIFO (First-In, First-Out) review</td>
+                                <td>Life-safety hazards treated with the same urgency as minor queries</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SLA Time Tracking</strong></td>
+                                <td>None (No timers or resolution deadlines)</td>
+                                <td>Tickets linger indefinitely without administrative consequences</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Escalation Path</strong></td>
+                                <td>Manual word-of-mouth student complaints to HOD</td>
+                                <td>HOD unaware of delays until student physically visits office</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resolution Verification</strong></td>
+                                <td>Staff self-certifies complaint as "Fixed"</td>
+                                <td>False closures without student confirmation or satisfaction rating</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card card-alt">
+                    <p class="card-body-text"><strong>Root Cause Analysis:</strong> The fundamental flaw in existing campus systems is the lack of <em>automated enforcement</em>. Without automated timer tracking and forced student sign-off, accountability cannot be maintained.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 5: PROPOSED SYSTEM (OUR 3-TIER SOLUTION)
+             =================================================================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 1: Define</div>
+                    <h2 class="slide-title">Proposed System: Centralized 3-Tier Solution</h2>
+                </div>
+                <span class="slide-tag">Architecture Overview</span>
+            </div>
+            <div class="slide-body">
+                <div class="diagram-flow" style="margin-bottom: 20px;">
+                    <div class="diagram-node">
+                        <div class="diagram-node-title">Tier 1: Client Web UI</div>
+                        <div class="diagram-node-sub">HTML5 • Bootstrap 5 • Fetch API<br>Live SLA Bar • 5-Star Rating Modal</div>
+                    </div>
+                    <div class="diagram-arrow">⇄</div>
+                    <div class="diagram-node">
+                        <div class="diagram-node-title">Tier 2: Java 21 Engine</div>
+                        <div class="diagram-node-sub">Built-in HttpServer (:8080)<br>Priority Router • SLA Auto-Escalator</div>
+                    </div>
+                    <div class="diagram-arrow">⇄</div>
+                    <div class="diagram-node">
+                        <div class="diagram-node-title">Tier 3: MySQL 8.0</div>
+                        <div class="diagram-node-sub">Relational Schema (:3306)<br>ACID Compliance • LONGTEXT Storage</div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="card card-primary">
+                        <div class="card-title">Core Breakthrough Capabilities</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">⚡</span><strong>Automated Priority Calculation:</strong> Evaluates keywords in real time to classify into High, Medium, or Low priority.</li>
+                            <li><span class="bullet-icon">⏱️</span><strong>48-Hour Resolution SLA Countdown:</strong> Initiates countdown timer immediately upon submission with a color-coded visual bar.</li>
+                            <li><span class="bullet-icon">🚨</span><strong>Multi-Tier Auto-Escalator:</strong> Background scheduled daemon auto-escalates unresolved tickets: Coordinator → HOD → Dean.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">Closed-Loop Resolution Guarantee</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">⭐</span><strong>Student Feedback Gate:</strong> Staff marks resolution as "Action Taken", but ticket <strong>cannot</strong> transition to RESOLVED without student's 1–5 star rating.</li>
+                            <li><span class="bullet-icon">📸</span><strong>Visual Evidence:</strong> Photo/document attachments with client-side canvas compression for rapid uploads.</li>
+                            <li><span class="bullet-icon">👥</span><strong>Role-Based Portals:</strong> Customized dashboards for Students, Coordinators, HODs, and Deans.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 6: PROJECT OBJECTIVES (SMART GOALS)
+             =================================================================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 1: Define</div>
+                    <h2 class="slide-title">Project Objectives (SMART Goals)</h2>
+                </div>
+                <span class="slide-tag">Engineering Goals</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="margin-bottom: 16px;">
+                    <div class="card card-primary">
+                        <div class="card-title">🎯 Specific</div>
+                        <p class="card-body-text">Develop a full-stack campus web portal supporting categorized grievance submissions (Hostel, Infrastructure, Academics) with photo attachments, reference IDs, and role-based workflows.</p>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">📊 Measurable</div>
+                        <p class="card-body-text">Enforce a strict 48-hour resolution SLA with live ticking countdowns, 100% grievance auditability, and mandatory 1–5 star student ratings prior to closure.</p>
+                    </div>
+                    <div class="card card-warning">
+                        <div class="card-title">⚙️ Achievable</div>
+                        <p class="card-body-text">Engineered cleanly using standard Java SE 21 built-in HttpServer, parameterized JDBC queries, and responsive Bootstrap 5 without bloated framework overhead.</p>
+                    </div>
+                    <div class="card card-danger">
+                        <div class="card-title">💡 Relevant &amp; Time-Bound</div>
+                        <p class="card-body-text">Directly eliminates administrative delays and paper waste in university campuses; features a 60-second recurring background daemon for automated multi-tier escalation.</p>
+                    </div>
+                </div>
+                <div class="card card-alt">
+                    <div class="card-title">Primary Success Metric (KPI)</div>
+                    <p class="card-body-text"><strong>100% Resolution Accountability:</strong> Zero tickets allowed to linger past 48 hours without automatic escalation to HOD/Dean, and zero tickets resolved without verified student closure feedback.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 7: KEY FUNCTIONAL FEATURES IMPLEMENTED
+             =================================================================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 1: Define</div>
+                    <h2 class="slide-title">Key Functional Features Implemented</h2>
+                </div>
+                <span class="slide-tag">Feature Matrix</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-4" style="margin-bottom: 16px;">
+                    <div class="metric-box">
+                        <div class="metric-value">48 Hrs</div>
+                        <div class="metric-label">Resolution SLA</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">3 Tiers</div>
+                        <div class="metric-label">Escalation Flow</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">1–5 ★</div>
+                        <div class="metric-label">Mandatory Rating</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Audit Trail</div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Student / Citizen Features</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">✓</span>Categorized grievance submission (Hostel, Infrastructure, Academics).</li>
+                            <li><span class="bullet-icon">✓</span>Real-time dynamic priority preview badge (HIGH, MEDIUM, LOW).</li>
+                            <li><span class="bullet-icon">✓</span>Photo/document attachment with client-side canvas compression.</li>
+                            <li><span class="bullet-icon">✓</span>Live 48-hour SLA countdown bar with remaining time ticker.</li>
+                            <li><span class="bullet-icon">✓</span>Mandatory 5-star satisfaction rating and feedback submission modal.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Administrative &amp; Officer Features</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">✓</span>Department-filtered queue for Hostel, Infra, and Academics Coordinators.</li>
+                            <li><span class="bullet-icon">✓</span>Action Taken resolution recording modal with remarks documentation.</li>
+                            <li><span class="bullet-icon">✓</span>Visual SLA urgency badges (Green &gt;24h, Yellow 12–24h, Red &lt;12h/Breached).</li>
+                            <li><span class="bullet-icon">✓</span>Manual &amp; automated escalation triggers to HOD and Dean.</li>
+                            <li><span class="bullet-icon">✓</span>One-click quick demo role switcher in top navbar.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 8: TECHNOLOGY STACK
+             =================================================================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 2: Design</div>
+                    <h2 class="slide-title">Technology Stack Specifications</h2>
+                </div>
+                <span class="slide-tag">Tech Stack</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3" style="margin-bottom: 20px;">
+                    <div class="card card-primary">
+                        <div class="card-title">Frontend Tier</div>
+                        <ul class="feature-list">
+                            <li><strong>HTML5:</strong> Semantic markup (<code class="keyboard-key">header</code>, <code class="keyboard-key">nav</code>, <code class="keyboard-key">section</code>).</li>
+                            <li><strong>CSS3:</strong> Custom styles, cards, and responsive grids.</li>
+                            <li><strong>Bootstrap 5.3:</strong> Responsive layout, modals, dropdowns.</li>
+                            <li><strong>Vanilla JS:</strong> Fetch API, async/await, DOM manipulation.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-warning">
+                        <div class="card-title">Backend Tier</div>
+                        <ul class="feature-list">
+                            <li><strong>Java SE 21:</strong> Modern Long-Term Support (LTS) JDK.</li>
+                            <li><strong>Built-in HttpServer:</strong> Zero framework overhead.</li>
+                            <li><strong>ScheduledExecutorService:</strong> 60s background SLA daemon.</li>
+                            <li><strong>Google Gson 2.10.1:</strong> Fast JSON serialization.</li>
+                            <li><strong>jBCrypt 0.4:</strong> Secure Blowfish password hashing.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">Database &amp; Tools</div>
+                        <ul class="feature-list">
+                            <li><strong>MySQL 8.0:</strong> Relational DBMS on Port 3306.</li>
+                            <li><strong>JDBC Connector/J 9.4.0:</strong> Parameterized SQL execution.</li>
+                            <li><strong>Draw.io:</strong> System architecture &amp; DFD modeling.</li>
+                            <li><strong>Postman:</strong> REST API contract verification.</li>
+                            <li><strong>Git &amp; GitHub:</strong> Version control &amp; release hosting.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card-alt">
+                    <p class="card-body-text"><strong>Architecture Decision:</strong> Instead of heavy Spring Boot overhead, we used standard Java SE built-in <code style="font-family: var(--font-mono); color: var(--primary);">com.sun.net.httpserver.HttpServer</code> with raw JDBC. This ensures 100% transparency, single-click execution, and lightning-fast startup.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 9: 3-TIER SYSTEM ARCHITECTURE & DATA FLOW
+             =================================================================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 2: Design</div>
+                    <h2 class="slide-title">3-Tier System Architecture &amp; Data Flow</h2>
+                </div>
+                <span class="slide-tag">Port :5500 → :8080 → :3306</span>
+            </div>
+            <div class="slide-body">
+                <div class="diagram-flow" style="margin-bottom: 20px;">
+                    <div class="diagram-node">
+                        <span class="badge badge-primary" style="margin-bottom: 6px;">Tier 1: Client</span>
+                        <div class="diagram-node-title">Browser Web Interface</div>
+                        <div class="diagram-node-sub">Port 8080 / 5500<br>HTML5 / Bootstrap 5 UI<br>Asynchronous Fetch API</div>
+                    </div>
+                    <div class="diagram-arrow">
+                        <span style="font-size: 0.75rem; display: block; color: var(--text-muted);">HTTP / JSON</span>
+                        ⇄
+                    </div>
+                    <div class="diagram-node">
+                        <span class="badge badge-warning" style="margin-bottom: 6px;">Tier 2: Backend</span>
+                        <div class="diagram-node-title">Java SE 21 HttpServer</div>
+                        <div class="diagram-node-sub">Port 8080<br>HttpHandler REST APIs<br>SLA Scheduled Daemon</div>
+                    </div>
+                    <div class="diagram-arrow">
+                        <span style="font-size: 0.75rem; display: block; color: var(--text-muted);">TCP / JDBC</span>
+                        ⇄
+                    </div>
+                    <div class="diagram-node">
+                        <span class="badge badge-success" style="margin-bottom: 6px;">Tier 3: Database</span>
+                        <div class="diagram-node-title">MySQL 8.0 Server</div>
+                        <div class="diagram-node-sub">Port 3306<br>complaint_system_db<br>ACID Compliant Tables</div>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Network &amp; Security Protocol</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>CORS Enabled:</strong> Headers configured (<code class="keyboard-key">Access-Control-Allow-Origin: *</code>) supporting decoupled frontend clients.</li>
+                            <li><span class="bullet-icon">•</span><strong>JSON Payloads:</strong> Standardized <code class="keyboard-key">application/json; charset=UTF-8</code> for all REST requests and responses.</li>
+                            <li><span class="bullet-icon">•</span><strong>Thread Pool Executor:</strong> Fixed thread pool handling concurrent HTTP requests safely.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">SLA Engine Daemon Thread</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>Isolated Execution:</strong> Runs independently on a background worker thread via <code class="keyboard-key">Executors.newSingleThreadScheduledExecutor()</code>.</li>
+                            <li><span class="bullet-icon">•</span><strong>Periodic Scanning:</strong> Triggers every 60 seconds without blocking main HTTP request-response cycles.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 10: APPLICATION MODULES BREAKDOWN
+             =================================================================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 2: Design</div>
+                    <h2 class="slide-title">Application Modules Breakdown</h2>
+                </div>
+                <span class="slide-tag">Modular Decomposition</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3" style="margin-bottom: 16px;">
+                    <div class="card card-primary">
+                        <div class="card-title">1. Auth &amp; RBAC</div>
+                        <p class="card-body-text">Manages user registration, BCrypt password hashing, and role switching across <strong>STUDENT, COORDINATOR, HOD, DEAN, ADMIN</strong>.</p>
+                    </div>
+                    <div class="card card-primary">
+                        <div class="card-title">2. Grievance Submission</div>
+                        <p class="card-body-text">Captures title, description, category, and photo proofs with client-side canvas compression and dynamic priority badges.</p>
+                    </div>
+                    <div class="card card-warning">
+                        <div class="card-title">3. Priority Router</div>
+                        <p class="card-body-text">Keyword-based heuristic engine classifying emergency hazards into HIGH, maintenance issues into MEDIUM, and inquiries into LOW.</p>
+                    </div>
+                </div>
+                <div class="grid-3">
+                    <div class="card card-warning">
+                        <div class="card-title">4. SLA Tracking Engine</div>
+                        <p class="card-body-text">Computes 48-hour resolution deadline (<code class="keyboard-key">created_at + 48h</code>) with live 1-second interval ticking countdown and color bar.</p>
+                    </div>
+                    <div class="card card-danger">
+                        <div class="card-title">5. Auto-Escalation Daemon</div>
+                        <p class="card-body-text">Background scheduler periodically identifying breached tickets and promoting them from Coordinator to HOD, then Dean.</p>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">6. Verification &amp; Rating</div>
+                        <p class="card-body-text">Enforces closed-loop governance: staff records "Action Taken", but status transitions to RESOLVED only upon student's 1–5 star rating.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 11: DATABASE DESIGN (3NF SCHEMA & CONSTRAINTS)
+             =================================================================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 2: Design</div>
+                    <h2 class="slide-title">Database Design (3NF Schema &amp; Constraints)</h2>
+                </div>
+                <span class="slide-tag">MySQL Schema</span>
+            </div>
+            <div class="slide-body">
+                <div class="table-container" style="margin-bottom: 16px;">
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Table Name</th>
+                                <th>Column Name</th>
+                                <th>Data Type</th>
+                                <th>Constraint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="badge badge-primary">users</code></td>
+                                <td>id</td>
+                                <td>INT AUTO_INCREMENT</td>
+                                <td>PRIMARY KEY</td>
+                                <td>Unique user surrogate identifier</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-primary">users</code></td>
+                                <td>email</td>
+                                <td>VARCHAR(150)</td>
+                                <td>UNIQUE, NOT NULL</td>
+                                <td>Unique login email address</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-primary">users</code></td>
+                                <td>role</td>
+                                <td>VARCHAR(30)</td>
+                                <td>DEFAULT 'STUDENT'</td>
+                                <td>STUDENT, COORDINATOR, HOD, DEAN, ADMIN</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>id</td>
+                                <td>INT AUTO_INCREMENT</td>
+                                <td>PRIMARY KEY</td>
+                                <td>Unique complaint identifier</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>reference_id</td>
+                                <td>VARCHAR(50)</td>
+                                <td>NOT NULL</td>
+                                <td>Formatted tracking key (<code style="font-family: var(--font-mono);">CMP-XXXXXX</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>user_id</td>
+                                <td>INT</td>
+                                <td>FOREIGN KEY (users.id)</td>
+                                <td>Relational linkage to student user</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>priority / status</td>
+                                <td>VARCHAR(20) / (50)</td>
+                                <td>NOT NULL</td>
+                                <td>Priority (HIGH/MED/LOW) &amp; Workflow State</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>attachment_path</td>
+                                <td>LONGTEXT</td>
+                                <td>NULL</td>
+                                <td>Base64 encoded photo or document proof</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>sla_deadline</td>
+                                <td>TIMESTAMP</td>
+                                <td>NULL</td>
+                                <td>48-Hour resolution deadline (<code style="font-family: var(--font-mono);">created_at + 48h</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="badge badge-warning">complaints</code></td>
+                                <td>rating / feedback</td>
+                                <td>INT / TEXT</td>
+                                <td>NULL</td>
+                                <td>Mandatory student satisfaction (1 to 5 stars)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card card-alt">
+                    <p class="card-body-text"><strong>3NF Compliance:</strong> All tables are in Third Normal Form (3NF). Every non-key attribute is non-transitively dependent exclusively on the primary key, eliminating insertion, deletion, and update anomalies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 12: DATA FLOW DIAGRAMS (LEVEL 0 & LEVEL 1)
+             =================================================================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 2: Design</div>
+                    <h2 class="slide-title">Data Flow Diagrams (Level 0 &amp; Level 1)</h2>
+                </div>
+                <span class="slide-tag">DFD Specifications</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="margin-bottom: 16px;">
+                    <div class="card card-primary">
+                        <div class="card-title">Level 0: Context Level Diagram</div>
+                        <p class="card-body-text" style="margin-bottom: 10px;">Represents the boundary of the entire Smart Complaint Portal interacting with external entities:</p>
+                        <div class="diagram-flow" style="flex-direction: column; gap: 8px;">
+                            <div class="diagram-node" style="width: 100%;">Student / Citizen (Submits Grievance, Views SLA, Rates Resolution)</div>
+                            <div class="diagram-arrow">↓ ↑</div>
+                            <div class="diagram-node" style="width: 100%; border-color: var(--warning); background: #fffbeb;">
+                                <strong>[0.0 Smart Complaint &amp; Grievance Redressal Portal]</strong>
+                            </div>
+                            <div class="diagram-arrow">↓ ↑</div>
+                            <div class="diagram-node" style="width: 100%;">Staff / Coordinators / HOD / Dean (Inspects, Actions, Escalates)</div>
+                        </div>
+                    </div>
+                    <div class="card card-alt">
+                        <div class="card-title">Level 1: Functional Processes</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">1.0</span><strong>User Authentication:</strong> Validates credentials against <code class="keyboard-key">users</code> store.</li>
+                            <li><span class="bullet-icon">2.0</span><strong>Priority Routing:</strong> Parses categories &amp; keywords; computes priority.</li>
+                            <li><span class="bullet-icon">3.0</span><strong>SLA Timer Initialization:</strong> Stores record with <code class="keyboard-key">NOW() + 48 HOURS</code>.</li>
+                            <li><span class="bullet-icon">4.0</span><strong>Action Recording:</strong> Coordinator records work done; state becomes <em>Action Taken</em>.</li>
+                            <li><span class="bullet-icon">5.0</span><strong>Auto-Escalation Engine:</strong> Scans breached tickets; escalates to HOD &amp; Dean.</li>
+                            <li><span class="bullet-icon">6.0</span><strong>Student Satisfaction Rating:</strong> Validates 1–5 stars; transitions state to <em>Resolved</em>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 13: END-TO-END USER JOURNEY / WORKFLOW
+             =================================================================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 2: Design</div>
+                    <h2 class="slide-title">End-to-End User Journey &amp; Workflow</h2>
+                </div>
+                <span class="slide-tag">State Machine</span>
+            </div>
+            <div class="slide-body">
+                <div class="diagram-flow" style="margin-bottom: 20px;">
+                    <div class="diagram-node">
+                        <span class="badge badge-neutral">Step 1</span>
+                        <div class="diagram-node-title">Submission</div>
+                        <div class="diagram-node-sub">Student selects category &amp; attaches photo proof</div>
+                    </div>
+                    <div class="diagram-arrow">→</div>
+                    <div class="diagram-node">
+                        <span class="badge badge-primary">Step 2</span>
+                        <div class="diagram-node-title">SLA Routing</div>
+                        <div class="diagram-node-sub">Auto priority set; 48h SLA timer begins</div>
+                    </div>
+                    <div class="diagram-arrow">→</div>
+                    <div class="diagram-node">
+                        <span class="badge badge-warning">Step 3</span>
+                        <div class="diagram-node-title">Action Taken</div>
+                        <div class="diagram-node-sub">Staff inspects &amp; submits resolution remarks</div>
+                    </div>
+                    <div class="diagram-arrow">→</div>
+                    <div class="diagram-node">
+                        <span class="badge badge-success">Step 4</span>
+                        <div class="diagram-node-title">Student Rating</div>
+                        <div class="diagram-node-sub">Student rates 1–5 stars; transitions to RESOLVED</div>
+                    </div>
+                </div>
+                <div class="card card-danger">
+                    <div class="card-title" style="color: var(--danger);">🚨 Automated Escalation Branch (If 48 Hours Expire)</div>
+                    <p class="card-body-text">If a coordinator fails to take action within 48 hours, the background SLA daemon automatically intervenes:</p>
+                    <div style="display: flex; gap: 10px; margin-top: 8px;">
+                        <span class="badge badge-danger">Level 1 Escalation</span> → Promoted to <strong>Dr. K. Raman (Head of Department)</strong> with high-visibility red badge.<br>
+                        <span class="badge badge-danger">Level 2 Escalation</span> → If still unresolved, promoted to <strong>Dr. V. Sen (Dean of Student Affairs)</strong> for executive resolution.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 14: FRONTEND INTERFACE & RESPONSIVE VIEWS
+             =================================================================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 3: Develop</div>
+                    <h2 class="slide-title">Frontend Interface, Forms &amp; Responsive Views</h2>
+                </div>
+                <span class="slide-tag">UI Engineering</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-3" style="margin-bottom: 18px;">
+                    <div class="card card-primary">
+                        <div class="card-title">Accessible Forms</div>
+                        <p class="card-body-text">Semantic HTML5 inputs with field validations, category dropdowns, and dynamic priority indicators that recalculate as the user types.</p>
+                    </div>
+                    <div class="card card-warning">
+                        <div class="card-title">Live SLA Countdown Ticker</div>
+                        <p class="card-body-text">JavaScript <code class="keyboard-key">setInterval()</code> updates every second, displaying remaining hours/minutes/seconds and updating the progress bar dynamically.</p>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">Canvas Photo Compressor</div>
+                        <p class="card-body-text">Client-side HTML5 Canvas resizes high-resolution smartphone camera photos (&gt;10MB) to max 1200px (~150KB) before transmission.</p>
+                    </div>
+                </div>
+                <div class="card card-alt">
+                    <div class="card-title">Responsive Design Strategy</div>
+                    <ul class="feature-list">
+                        <li><span class="bullet-icon">📱</span><strong>Mobile Viewports (&lt; 768px):</strong> Multi-column tables collapse cleanly into touch-friendly cards; navbar converts to a collapsible hamburger menu.</li>
+                        <li><span class="bullet-icon">💻</span><strong>Desktop &amp; Projectors:</strong> High-contrast slate and navy typography (#0f172a) ensures clear readability in college auditoriums and evaluation labs.</li>
+                        <li><span class="bullet-icon">⚡</span><strong>Zero Dependencies:</strong> Built with pure HTML5, CSS3, and Vanilla JavaScript—no bulky frontend framework bundles.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 15: JAVA BACKEND ENGINE & DAO ARCHITECTURE
+             =================================================================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 3: Develop</div>
+                    <h2 class="slide-title">Java Backend Engine &amp; DAO Architecture</h2>
+                </div>
+                <span class="slide-tag">Backend Engineering</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="margin-bottom: 18px;">
+                    <div class="card card-primary">
+                        <div class="card-title">Controller / Handler Layer</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>HttpServer (Port 8080):</strong> Natively binds contexts for auth, complaints, tracking, and actions.</li>
+                            <li><span class="bullet-icon">•</span><strong>Thread Pool:</strong> Backed by <code class="keyboard-key">Executors.newFixedThreadPool(10)</code> for non-blocking concurrent request handling.</li>
+                            <li><span class="bullet-icon">•</span><strong>CORS Interceptor:</strong> Sets standard Access-Control headers on every response.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">Data Access Object (DAO) Layer</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>ComplaintDAO.java:</strong> Handles CRUD operations, priority heuristics, and SLA deadline generation.</li>
+                            <li><span class="bullet-icon">•</span><strong>UserDAO.java:</strong> Validates user credentials using <code class="keyboard-key">BCrypt.checkpw()</code>.</li>
+                            <li><span class="bullet-icon">•</span><strong>DatabaseConnection.java:</strong> Manages JDBC connections, auto-creates tables, and seeds demo accounts.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="code-box">
+// Core SLA Auto-Escalation Engine in Main.java
+ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+scheduler.scheduleAtFixedRate(() -> {
+    int escalated = complaintDAO.checkAndEscalateBreachedTickets();
+    if (escalated > 0) {
+        System.out.println("🚨 Breached SLA: " + escalated + " ticket(s) auto-escalated to HOD/Dean!");
+    }
+}, 10, 60, TimeUnit.SECONDS);
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 16: DATABASE CRUD & PARAMETERIZED QUERIES
+             =================================================================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 3: Develop</div>
+                    <h2 class="slide-title">Database CRUD Operations &amp; Parameterized SQL</h2>
+                </div>
+                <span class="slide-tag">SQL &amp; JDBC</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="margin-bottom: 16px;">
+                    <div class="card">
+                        <div class="card-title">CREATE &amp; READ Queries</div>
+                        <div class="code-box" style="font-size: 0.78rem;">
+-- Insert Complaint with 48h SLA Deadline
+INSERT INTO complaints (user_id, title, description,
+  category, department, priority, status, attachment_path,
+  assigned_coordinator, created_at, sla_deadline)
+VALUES (?, ?, ?, ?, ?, ?, 'Submitted', ?, ?, NOW(),
+  DATE_ADD(NOW(), INTERVAL 48 HOUR));
+
+-- Track Complaint by Reference ID
+SELECT c.*, u.name as user_name FROM complaints c
+JOIN users u ON c.user_id = u.id
+WHERE c.reference_id = ? OR c.id = ?;
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">UPDATE, ESCALATE &amp; CLOSE Queries</div>
+                        <div class="code-box" style="font-size: 0.78rem;">
+-- Record Action Taken (Staff Pre-Closure)
+UPDATE complaints SET status = 'Action Taken',
+  resolution = ? WHERE id = ?;
+
+-- Mandatory Student Rating to Finalize RESOLVED
+UPDATE complaints SET status = 'Resolved',
+  rating = ?, feedback = ? WHERE id = ?;
+
+-- 48h SLA Auto-Escalation Query
+UPDATE complaints SET status = ?, escalation_level = ?,
+  escalated_to = ? WHERE id = ?;
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-alt">
+                    <p class="card-body-text"><strong>Security Enforcement:</strong> 100% of database interactions use <code style="font-family: var(--font-mono); color: var(--primary);">java.sql.PreparedStatement</code> with positional placeholders (<code class="keyboard-key">?</code>). This guarantees absolute immunity against SQL Injection attacks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 17: ACCEPTANCE CRITERIA VERIFICATION & TEST RESULTS
+             =================================================================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 3: Integration</div>
+                    <h2 class="slide-title">Acceptance Criteria Verification &amp; Test Results</h2>
+                </div>
+                <span class="slide-tag">Test Results</span>
+            </div>
+            <div class="slide-body">
+                <div class="table-container" style="margin-bottom: 16px;">
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Acceptance Criteria</th>
+                                <th>Test Execution Scenario</th>
+                                <th>Observed Output</th>
+                                <th>Verdict</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>AC 1: Categorized Grievance &amp; Attachments</strong></td>
+                                <td>Submit "Water leak in Hostel Room 204" with base64 PNG attachment.</td>
+                                <td>Priority auto-classified as <span class="badge badge-danger">HIGH</span>; photo saved in <code class="keyboard-key">LONGTEXT</code> column.</td>
+                                <td><span class="badge badge-success">PASSED</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>AC 2: 48-Hour Resolution SLA Countdown</strong></td>
+                                <td>Inspect tracking for newly created complaint <code style="font-family: var(--font-mono);">CMP-000003</code>.</td>
+                                <td>SLA deadline set to exactly <code class="keyboard-key">created_at + 48h</code>; live ticking timer displayed.</td>
+                                <td><span class="badge badge-success">PASSED</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>AC 3: Auto-Escalation upon SLA Expiry</strong></td>
+                                <td>Simulate SLA breach on ticket <code style="font-family: var(--font-mono);">CMP-999999</code> past deadline.</td>
+                                <td>Level 1: Auto-escalated to <strong>HOD (Dr. Raman)</strong>.<br>Level 2: Auto-escalated to <strong>Dean (Dr. Sen)</strong>.</td>
+                                <td><span class="badge badge-success">PASSED</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>AC 4: Mandatory Student Satisfaction Rating</strong></td>
+                                <td>Staff submits Action Taken; attempt to close without rating.</td>
+                                <td>Status stays in <em>Action Taken</em>; transitions to <strong>RESOLVED</strong> only after 5-star rating submission.</td>
+                                <td><span class="badge badge-success">PASSED</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card card-success">
+                    <p class="card-body-text"><strong>Quality Assurance Summary:</strong> All 4 mandatory acceptance criteria have been rigorously tested and verified with both automated API integration scripts and browser DOM validation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 18: LIVE WORKING RESULTS & DASHBOARD UI
+             =================================================================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 4: Deploy</div>
+                    <h2 class="slide-title">Live Working Results &amp; Dashboard UI</h2>
+                </div>
+                <span class="slide-tag">Working Demonstration</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="margin-bottom: 18px;">
+                    <div class="card card-primary">
+                        <div class="card-title">🖥️ Student Grievance Portal View</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>Live Metric Banner:</strong> Real-time statistics showing Total Tickets, Active SLA Timers, Escalations, and Resolved Grievances.</li>
+                            <li><span class="bullet-icon">•</span><strong>Smart Submission Form:</strong> Interactive category selector, automatic priority calculation badge, and image proof preview.</li>
+                            <li><span class="bullet-icon">•</span><strong>Dynamic SLA Bar:</strong> Visual color-coded progress bar that shifts from Green to Yellow to Red as the 48-hour deadline approaches.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-warning">
+                        <div class="card-title">🛡️ Officer &amp; Executive Portal View</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">•</span><strong>Department Queue:</strong> Filterable by Hostel, Infrastructure, Academics, and Escalated tickets.</li>
+                            <li><span class="bullet-icon">•</span><strong>Action Modal:</strong> Staff records detailed work remarks and parts replaced.</li>
+                            <li><span class="bullet-icon">•</span><strong>Escalation Warnings:</strong> Flashing badges identifying tickets nearing deadline or auto-escalated to HOD/Dean.</li>
+                            <li><span class="bullet-icon">•</span><strong>One-Click Role Switcher:</strong> Easily switch between Student, Hostel Coord, Academics Coord, HOD, and Dean.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card-alt" style="text-align: center; padding: 14px;">
+                    <span style="font-size: 0.92rem; color: var(--text-secondary);">
+                        🌐 <strong>Live Application URL:</strong> <a href="http://localhost:8080" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">http://localhost:8080</a> | 
+                        📁 <strong>GitHub Repository:</strong> <a href="https://github.com/sanjai-19/smart-complaint-portal" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">github.com/sanjai-19/smart-complaint-portal</a>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 19: FUTURE ENHANCEMENTS & SCALABILITY
+             =================================================================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 4: Deploy</div>
+                    <h2 class="slide-title">Future Enhancements &amp; Scalability Roadmap</h2>
+                </div>
+                <span class="slide-tag">Project Roadmap</span>
+            </div>
+            <div class="slide-body">
+                <div class="grid-2" style="margin-bottom: 18px;">
+                    <div class="card card-primary">
+                        <div class="card-title">Phase 5 (Next Sprints)</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">📱</span><strong>Mobile Application:</strong> Cross-platform mobile client built using Flutter / React Native with push notifications.</li>
+                            <li><span class="bullet-icon">💬</span><strong>WhatsApp &amp; SMS Bot:</strong> Instant SMS/WhatsApp alerts to coordinators and students upon SLA milestone transitions.</li>
+                            <li><span class="bullet-icon">📍</span><strong>Geo-Tagging &amp; Campus GIS Maps:</strong> Heatmaps visualizing complaint density across campus blocks to isolate recurring infrastructure flaws.</li>
+                        </ul>
+                    </div>
+                    <div class="card card-success">
+                        <div class="card-title">Phase 6 (Enterprise Scale)</div>
+                        <ul class="feature-list">
+                            <li><span class="bullet-icon">🤖</span><strong>AI NLP Triage:</strong> Pre-trained BERT model for automated sentiment analysis and multi-lingual grievance text translation.</li>
+                            <li><span class="bullet-icon">🔗</span><strong>Multi-Campus Federation:</strong> Centralized multi-tenant architecture managing multiple colleges under a single administrative umbrella.</li>
+                            <li><span class="bullet-icon">📡</span><strong>IoT Hardware Integration:</strong> Direct connection to smart power meters and water tank sensors to automatically spawn tickets.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card-alt">
+                    <p class="card-body-text"><strong>Architectural Readiness:</strong> Because the system is structured with clean separation of concerns (RESTful API, DAO abstraction, and parameterized queries), adding cloud message queues or third-party webhooks requires zero refactoring of core business logic.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SLIDE 20: CONCLUSION & VIVA DEFENSE Q&A
+             =================================================================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-header">
+                <div>
+                    <div class="slide-category">Phase 4: Deploy</div>
+                    <h2 class="slide-title">Conclusion, Learnings &amp; Viva Defense Q&amp;A</h2>
+                </div>
+                <span class="slide-tag">Final Defense</span>
+            </div>
+            <div class="slide-body" style="justify-content: center;">
+                <div class="card card-primary" style="margin-bottom: 20px; padding: 24px;">
+                    <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: 8px;">Key Engineering Takeaways</h3>
+                    <ul class="feature-list">
+                        <li><span class="bullet-icon">✓</span><strong>Full-Stack Mastery:</strong> Successfully integrated semantic frontend interfaces, robust Java HTTP backend architecture, and ACID-compliant relational databases.</li>
+                        <li><span class="bullet-icon">✓</span><strong>Process Automation:</strong> Proved that automated 48-hour SLA timers and multi-tier escalation solve the real-world problem of untracked campus grievances.</li>
+                        <li><span class="bullet-icon">✓</span><strong>Closed-Loop Governance:</strong> Enforced administrative accountability by preventing ticket resolution until verified by student satisfaction feedback.</li>
+                    </ul>
+                </div>
+                <div class="card card-alt" style="text-align: center; padding: 24px;">
+                    <h2 style="color: var(--text-primary); font-size: 1.6rem; margin-bottom: 8px;">Thank You!</h2>
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 12px;">Candidate: <strong>Sanjai</strong> | Department of CSE (Artificial Intelligence) | SIST</p>
+                    <div style="display: inline-block; background: var(--primary-light); color: var(--primary-dark); font-weight: bold; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem;">
+                        🎤 Open for Viva Defense Questions &amp; Evaluation Feedback
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTTOM CONTROLS FOOTER -->
+    <footer class="presentation-footer">
+        <div class="controls-group">
+            <button class="nav-btn" id="btnPrev" onclick="navigateSlide(-1)">← Prev</button>
+            <button class="nav-btn nav-btn-primary" id="btnNext" onclick="navigateSlide(1)">Next →</button>
+        </div>
+
+        <div class="footer-instructions">
+            Navigate: <span class="keyboard-key">←</span> <span class="keyboard-key">→</span> or <span class="keyboard-key">Space</span> | Jump: <span class="keyboard-key">Home</span> / <span class="keyboard-key">End</span>
+        </div>
+
+        <div class="controls-group">
+            <button class="nav-btn" onclick="goToSlide(1)">First</button>
+            <button class="nav-btn" onclick="goToSlide(20)">Last</button>
+        </div>
+    </footer>
+
+    <!-- EMBEDDED PRESENTATION CONTROLLER (PURE VANILLA JAVASCRIPT) -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 20;
+
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slideCounter');
+        const progressBar = document.getElementById('progressBar');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        function updateSlide() {
+            slides.forEach(slide => {
+                const slideNum = parseInt(slide.getAttribute('data-slide'));
+                if (slideNum === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Update on-screen counter
+            counter.textContent = `Slide ${currentSlide} / ${totalSlides}`;
+
+            // Update top progress bar
+            const percent = (currentSlide / totalSlides) * 100;
+            progressBar.style.width = `${percent}%`;
+
+            // Update button disabled states
+            btnPrev.disabled = (currentSlide === 1);
+            btnNext.disabled = (currentSlide === totalSlides);
+        }
+
+        function navigateSlide(direction) {
+            const next = currentSlide + direction;
+            if (next >= 1 && next <= totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        function goToSlide(slideNum) {
+            if (slideNum >= 1 && slideNum <= totalSlides) {
+                currentSlide = slideNum;
+                updateSlide();
+            }
+        }
+
+        // KEYBOARD CONTROLS (STRICT REQUIREMENT)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                navigateSlide(1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                navigateSlide(-1);
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(1);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(totalSlides);
+            }
+        });
+
+        // Initialize presentation
+        updateSlide();
+    </script>
+</body>
+</html>

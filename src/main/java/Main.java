@@ -86,6 +86,7 @@ public class Main {
         System.out.println("    🎓 SMART COMPLAINT RESOLUTION PORTAL (STUDENT EDITION) READY!");
         System.out.println("================================================================================");
         System.out.println("  🌐 Open in Browser: http://localhost:" + PORT);
+        System.out.println("  📊 Viva Presentation: http://localhost:" + PORT + "/presentation/presentation.html");
         System.out.println("  ⏱️  Background SLA Auto-Escalation Engine: ACTIVE (Checking every 60s)");
         System.out.println("  ⭐ Acceptance Criteria 1 to 4: Fully Supported & Visualized");
         System.out.println("================================================================================\n");
@@ -102,8 +103,11 @@ public class Main {
                 path = "/index.html";
             }
 
-            // Find file in src/main/resources/web or target classes
+            // Find file in src/main/resources/web or presentation or root
             File file = new File("src/main/resources/web" + path);
+            if (!file.exists() && path.startsWith("/presentation/")) {
+                file = new File("." + path);
+            }
             if (!file.exists()) {
                 // Try classpath resource
                 try (InputStream is = getClass().getResourceAsStream("/web" + path)) {
