@@ -494,3 +494,45 @@ body {
     color: #334155;
     margin: 0 2px;
 }
+
+/* ==========================================================================
+   PRINT / PDF EXPORT STYLES (20-SLIDE ACADEMIC HANDOUT)
+   ========================================================================== */
+@media print {
+    @page {
+        size: 16in 9in;
+        margin: 0;
+    }
+    html, body {
+        overflow: visible !important;
+        height: auto !important;
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    .presentation-header,
+    .presentation-footer {
+        display: none !important;
+    }
+    .slides-container {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+    .slide {
+        display: flex !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        height: 9in !important;
+        max-height: 9in !important;
+        min-height: 9in !important;
+        width: 16in !important;
+        padding: 40px 60px !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
